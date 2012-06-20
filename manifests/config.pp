@@ -45,7 +45,15 @@ class mysql::config(
   $ssl_key           = $mysql::params::ssl_key,
   $log_error         = $mysql::params::log_error,
   $default_engine    = 'UNSET',
-  $root_group        = $mysql::params::root_group
+  $root_group        = $mysql::params::root_group,
+  $log_bin            = 'OFF',
+  $server_id          = 0,
+  $expire_logs_days   = 0,
+  $max_binlog_size    = 1073741824,
+  $binlog_do_db       = 'UNSET',
+  $replicate_do_db    = 'UNSET',
+  $is_master          = false,
+  $is_slave           = false,
 ) inherits mysql::params {
 
   File {
