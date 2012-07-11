@@ -21,17 +21,19 @@ myisam-recover      = BACKUP
 query_cache_limit   = 1M
 query_cache_size    = 16M
 log_error           = <%= log_error %>
-expire_logs_days    = <%= expire_logs_days %>
-max_binlog_size     = <%= max_binlog_size %>
-server-id           = <%= server_id %>
-log-bin             = <%= log_bin %>
 
 <% if is_master %>
 binlog-do-db        = <%= binlog_do_db %>
+log-bin             = <%= log_bin %>
+max_binlog_size     = <%= max_binlog_size %>
+expire_logs_days    = <%= expire_logs_days %>
+server-id           = <%= server_id %>
 <% end %>
 
 <% if is_slave %>
-replicate-do-db     = <%= replicate_do_db %>
+replicate-do-db     	= <%= replicate_do_db %>
+master-connect-retry	= <%= master_connect_retry %>
+server-id           = <%= server_id %>
 <% end %>
 
 <% if default_engine != 'UNSET' %>
