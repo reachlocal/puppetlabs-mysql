@@ -52,7 +52,6 @@ class mysql::config(
   $max_binlog_size    = 1073741824,
   $binlog_do_db       = 'UNSET',
   $replicate_do_db    = 'UNSET',
-  $master_connect_retry = 0, 
   $is_master          = false,
   $is_slave           = false,
 ) inherits mysql::params {
